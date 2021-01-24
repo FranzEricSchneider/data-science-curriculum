@@ -2,7 +2,7 @@
 title: "Error and Bias"
 author: Zachary del Rosario
 date: 2020-07-19
-output: github_document
+output: html_document
 time: 20
 reading: 0
 ---
@@ -135,7 +135,7 @@ df_q3 <-
     c_meas_sd = sd(c_meas),
     n_samp = n(),
     c_lo = c_meas_mean - q * c_meas_sd / sqrt(n_samp),
-    c_hi = c_meas_mean + q * c_meas_sd / sqrt(n_samp)
+    c_hi = c_meas_mean + q * c_meas_sd / sqrt(n_samp),
   )
 # solution-end
 

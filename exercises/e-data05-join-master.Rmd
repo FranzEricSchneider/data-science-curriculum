@@ -90,7 +90,9 @@ __q2__ Use the following `beatles3` to *correctly* join `beatles1`
 ```{r qY-task}
 df_q2 <-
 # task-begin
-## TODO: Join beatles1 and beatles2 using beatles3 to match rows
+beatles1 %>%
+  left_join(beatles3, by = "name") %>%
+  left_join(beatles2, by = "surname")
 # task-end
 # solution-begin
   beatles1 %>%
@@ -198,7 +200,7 @@ df_q4 <-
 # solution-begin
   semi_join(
     criteria,
-    by = c("dest", "month")
+    # by = c("dest", "month")
   )
 # solution-end
 

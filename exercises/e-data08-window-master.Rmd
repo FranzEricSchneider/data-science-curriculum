@@ -48,9 +48,13 @@ __q1__ Use a window function modify the following visual to color each segment d
 # task-begin
 ## TASK: Modify the following code to color each segment based on whether the
 ##       trend is increasing or decreasing in time
-economics %>%
 
-  ggplot(aes(date, unemploy)) +
+economics %>%
+  arrange(date) %>%
+  mutate(
+    positive = (lead(unemploy) - unemploy) > 0
+  ) %>%
+  ggplot(aes(date, unemploy, color = positive)) +
   geom_segment(aes(
     xend = lead(date, order_by = date),
     yend = lead(unemploy, order_by = date)
@@ -148,6 +152,8 @@ __q2__ Use a rank function to filter the largest 3 `hwy` values and **all** vehi
 ## TASK: Use a rank function to filter the `mpg` data
 q2 <- mpg
 # task-end
+q2 <- mpg %>%
+  filter(dense_rank(desc(hwy)) <= 3)
 # solution-begin
 q2 <-
   mpg %>%

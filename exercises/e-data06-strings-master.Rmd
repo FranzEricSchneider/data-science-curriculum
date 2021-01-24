@@ -366,16 +366,26 @@ __q6__ Use your knowledge of regular expressions along with the `names_pattern` 
 # task-begin
 df_q6 <- alloys
 # task-end
-# solution-begin
 df_q6 <-
   alloys %>%
   pivot_longer(
-    names_to = c("property", "angle"),
-    names_pattern = "([:alpha:]+)(\\d+)",
+    cols=matches("\\d"),
+    names_to=c("property", "angle"),
     values_to = "value",
-    cols = matches("\\d")
+    names_pattern = c("([a-zA-Z]+)(\\d+)"),
   ) %>%
   mutate(angle = as.integer(angle))
+
+# solution-begin
+# df_q6 <-
+#   alloys %>%
+#   pivot_longer(
+#     names_to = c("property", "angle"),
+#     names_pattern = "([:alpha:]+)(\\d+)",
+#     values_to = "value",
+#     cols = matches("\\d")
+#   ) %>%
+#   mutate(angle = as.integer(angle))
 # solution-end
 df_q6
 ```

@@ -12,6 +12,7 @@ reading: 0
 *Reading*: [`theme()` documentation](https://ggplot2.tidyverse.org/reference/theme.html) (Use as a reference; don't read the whole thing!)
 
 ```{r setup, include=FALSE}
+library(tidyverse)
 # knitr options
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -22,6 +23,14 @@ __q1__ Use `theme_void()` and `guides()` (with an argument) to remove everything
 mpg %>%
   ggplot(aes(displ, hwy, color = class)) +
   geom_point()
+```
+
+```{r q1-tasked}
+mpg %>%
+  ggplot(aes(displ, hwy, color = class)) +
+  geom_point() +
+  guides(color = "none") +
+  theme_void()
 ```
 
 <!-- solution-begin -->
@@ -119,6 +128,18 @@ mpg %>%
   )
 ```
 
+```{r q3-tasked}
+mpg %>%
+  ggplot(aes(displ, hwy, color = class)) +
+  geom_point() +
+  theme(
+    aspect.ratio = 8 / 4,
+    legend.text = element_text(color = c(255, 255, 0), size = 13),
+    
+    rect = element_rect(fill = c(1, 1, 0)),
+    panel.background = element_rect(fill = 'cyan'),
+  )
+```
 <!-- solution-begin -->
 Here's one possible graph:
 

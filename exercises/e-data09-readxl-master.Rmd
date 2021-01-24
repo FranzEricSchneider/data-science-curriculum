@@ -135,7 +135,33 @@ col_names_undoc <-
 ## TASK: Use the arguments `skip`, `col_names`, and `col_types`
 # task-begin
 df_q3 <-
-  read_excel(filename, sheet = 1)
+  read_excel(
+    filename,
+    sheet = 1,
+    skip=7,
+    col_names = col_names_undoc,
+  col_types = c(
+    "region"     = "text",
+    "sub_region" = "text",
+    "territory"  = "text",
+    "source"     = "text",
+    "org"        = "text",
+    "indicator"  = "text",
+    "2000" = "numeric",
+    "2001" = "numeric",
+    "2002" = "numeric",
+    "2003" = "numeric",
+    "2004" = "numeric",
+    "2005" = "numeric",
+    "2006" = "numeric",
+    "2007" = "numeric",
+    "2008" = "numeric",
+    "2009" = "numeric",
+    "2010" = "numeric",
+    "2011" = "numeric",
+    "2012" = "numeric"
+  )
+  )
 # task-end
 # solution-begin
 df_q3 <- read_excel(
@@ -267,5 +293,36 @@ while (countna(df_q4, vars_lagged) > 0) {
 ```
 
 And we're done! All of the particularly tricky wrangling is now done. You could now use pivoting to tidy the data into long form.
+
+```{r extra}
+df_q4 %>%
+  pivot_longer(
+    cols = c(
+      "2000",
+      "2001",
+      "2002",
+      "2003",
+      "2004",
+      "2005",
+      "2006",
+      "2007",
+      "2008",
+      "2009",
+      "2010",
+      "2011",
+      "2012"
+    ),
+    names_to = "year",
+  ) %>%
+pivot_wider(
+  names_from = indicator,
+) %>%
+transform(
+  year = as.numeric(year)
+) %>%
+ggplot(aes(x = year, y = Rate, color = region)) +
+  geom_point() +
+  geom_smooth()
+```
 
 <!-- include-exit-ticket -->

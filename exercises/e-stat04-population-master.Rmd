@@ -2,7 +2,7 @@
 title: "Statistics: Populations and Estimation"
 author: Zach del Rosario
 date: 2020-06-23
-output: github_document
+output: pdf_document
 time: 50
 reading: 10
 ---

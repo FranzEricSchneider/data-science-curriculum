@@ -49,10 +49,10 @@ __q1__ Use `map_chr()` to prepend the string `"N: "` to the numbers in `v_nums`.
 v_nums <- c(1, 2, 3)
 # task-begin
 ## TASK: Prepend "N: " with a map to v_nums
-v_q1 <- NA_character_
+v_q1 <- map_chr( v_nums, ~str_c("N: ", .x) )
 # task-end
 # solution-begin
-v_q1 <- map_chr(v_nums, ~ str_c("N: ", .x))
+
 # solution-end
 
 v_q1
@@ -73,10 +73,10 @@ __q2__ Use `map_dbl()` to compute the `log` with `base = 2` of the numbers in `v
 ```{r q2-task}
 # task-begin
 ## TASK: Compute the log base = 2 with a map
-v_q2 <- NA_character_
+v_q2 <- map( v_nums, ~ log(.x, base = 2) )
 # task-end
 # solution-begin
-v_q2 <- map_dbl(v_nums, ~ log(.x, base = 2))
+
 # solution-end
 
 v_q2

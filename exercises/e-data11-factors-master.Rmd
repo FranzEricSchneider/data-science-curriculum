@@ -90,7 +90,7 @@ gapminder %>%
   mutate(
     continent = fct_relevel(
       continent,
-      "Oceania"
+      c("Europe", "Asia")
     )
   ) %>%
   pull(continent) %>%
@@ -117,6 +117,7 @@ sort them on another variable, rather
 ```{r mpg-unsorted}
 mpg %>%
   mutate(manufacturer = fct_reorder(manufacturer, cty)) %>%
+  # mutate(manufacturer = fct_reorder(manufacturer, cty)) %>%
 
   ggplot(aes(manufacturer, cty)) +
   geom_boxplot() +
@@ -170,7 +171,7 @@ __q5__ Use `fct_reorder2()` to sort `country` to match the order of `x = year, y
 gapminder %>%
   filter(dense_rank(country) <= 7) %>%
 # solution-begin
-  mutate(country = fct_reorder2(country, year, pop)) %>%
+  mutate(country = fct_reorder(country, pop)) %>%
 # solution-end
 
   ggplot(aes(year, pop, color = country)) +

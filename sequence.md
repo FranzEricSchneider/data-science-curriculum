@@ -45,7 +45,9 @@
 |e-data11-factors            |  31|                          10|                     30|
 |e-stat08-fit-dist           |  31|                          20|                     30|
 |e-vis07-perception          |  32|                          60|                     60|
+
 |e-stat09-bootstrap          |  33|                          30|                     30|
+
 |e-data12-simple-pipeline    |  34|                          20|                     50|
 |e-vis08-multiples           |  34|                          30|                     50|
 |e-stat10-hyp-intro          |  35|                          40|                     40|

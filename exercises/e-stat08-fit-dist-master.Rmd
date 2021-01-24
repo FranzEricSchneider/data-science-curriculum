@@ -80,7 +80,10 @@ __q2__ Use the function `fitdistr()` to fit a `"weibull"` distribution to the re
 ```{r q2-task}
 ## NOTE: No need to edit this setup
 set.seed(101)
-df_data_weibull <- tibble(y = rweibull(50, shape = 2, scale = 4))
+df_data_weibull <- tibble(y = rweibull(15000, shape = 2, scale = 4))
+
+ggplot() +
+    geom_density(aes(df_data_weibull$y))
 
 ## TASK: Use the `fitdistr()` function to estimate parameters
 # task-begin
