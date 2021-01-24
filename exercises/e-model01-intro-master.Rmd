@@ -133,7 +133,7 @@ The `tidy()` function takes a fit and returns the model's parameters; here we ca
 
 $$\widehat{\text{price}} = \beta_0 + \beta_{\text{carat}} (\text{carat}) + \epsilon.$$
 
-This slightly-mysterious formula notation `price ~ carat` is convenient for defining many kinds of models, as we'll see in the following task. 
+This slightly-mysterious formula notation `price ~ carat` is convenient for defining many kinds of models, as we'll see in the following task.
 
 __q1__ Copy the code above to fit a model of the form
 
@@ -163,6 +163,7 @@ fit_q1 %>% tidy()
 - What kind of variable is `carat`? What is `cut`?
 - Can we "multiply" `cut` by a constant? Why or why not?
 - Describe the difference between the `term`s for `carat` and `cut`.
+- How many `cut` terms does the model have? How many levels does `cut` have?
 <!-- task-end -->
 <!-- solution-begin -->
 - `carat` is a continuous variable, while `cut` is an (ordinal) factor; it only takes fixed non-numerical values.
